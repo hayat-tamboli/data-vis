@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import {
   Chart as ChartJS,
@@ -241,8 +242,8 @@ export const MyRidgeLineChart = () => {
   };
 
   // To make configuration
-  const options = {
-    responsive: true,
+  const options: any = {
+    responsive: true as boolean,
     transitions: {
       show: {
         animations: {
@@ -286,9 +287,9 @@ export const MyRidgeLineChart = () => {
       },
     },
     interaction: {
-      mode: "nearest",
-      axis: "x",
-      intersect: false,
+      mode: "nearest" as const,
+      axis: "x" as const,
+      intersect: false as const,
     },
     scales: {
       x: {
