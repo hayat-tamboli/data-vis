@@ -1,14 +1,15 @@
 import { TotalReleaseAreaChart } from "./totalReleaseAreaChart";
 import { MyRadarChart } from "../app/radarCharts";
 import { MyRidgeLineChart } from "../app/myAreaChart";
-import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
     <div className="bg-white min-h-screen">
       <main className="flex flex-col gap-8 lg:p-20 p-4">
         <div className="text-black">
-          <h1 className="font-bold text-5xl">Bolly <span className="text-cyan-600">Blues</span></h1>
+          <h1 className="font-bold text-5xl">
+            Bolly <span className="text-cyan-600">Blues</span>
+          </h1>
           <h3 className="text-2xl">A data visualization of Bollywood</h3>
           <p>
             Inspired from the work of{" "}
@@ -36,8 +37,8 @@ export default function Home() {
             >
               Python
             </a>
-            's Selenium and requests library to get Poster images from 1972 -
-            2022.
+            &apos;s Selenium and requests library to get Poster images from 1972
+            - 2022.
           </p>
           <p>
             <a
@@ -46,7 +47,8 @@ export default function Home() {
               className="hover:underline text-cyan-600"
             >
               Shadcn Charts
-            </a> and{" "}
+            </a>{" "}
+            and{" "}
             <a
               href="https://ui.shadcn.com/charts"
               target="_blank"
