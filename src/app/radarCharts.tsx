@@ -100,41 +100,43 @@ export function MyRadarChart() {
           </RadarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex flex-col items-center">
         <div className="mr-2 w-12">Year: {sliderValue[0] + 1931}</div>
-        <Button
-          variant="outline"
-          className={sliderValue[0] == 91 ? "hidden" : "px-3 py-5 mr-4"}
-          onClick={() => {
-            setIsAnimating(!isAnimating);
-          }}
-        >
-          <Play
-            size={20}
-            weight="regular"
-            className={!isAnimating ? "block" : "hidden"}
+        <div>
+          <Button
+            variant="outline"
+            className={sliderValue[0] == 91 ? "hidden" : "px-3 py-5 mr-4"}
+            onClick={() => {
+              setIsAnimating(!isAnimating);
+            }}
+          >
+            <Play
+              size={20}
+              weight="regular"
+              className={!isAnimating ? "block" : "hidden"}
+            />
+            <Pause
+              size={20}
+              weight="regular"
+              className={!isAnimating ? "hidden" : "block"}
+            />
+          </Button>
+          <Button
+            variant="outline"
+            className={sliderValue[0] != 91 ? "hidden" : "flex px-3 py-5 mr-4"}
+            onClick={() => {
+              setSliderValue([0]);
+            }}
+          >
+            <ArrowCounterClockwise size={20} />
+          </Button>
+          <Slider
+            value={sliderValue} // Bind the slider value
+            max={91}
+            step={1}
+            onValueChange={handleSliderChange} // Use the new handler
           />
-          <Pause
-            size={20}
-            weight="regular"
-            className={!isAnimating ? "hidden" : "block"}
-          />
-        </Button>
-        <Button
-          variant="outline"
-          className={sliderValue[0] != 91 ? "hidden" : "flex px-3 py-5 mr-4"}
-          onClick={() => {
-            setSliderValue([0]);
-          }}
-        >
-          <ArrowCounterClockwise size={20} />
-        </Button>
-        <Slider
-          value={sliderValue} // Bind the slider value
-          max={91}
-          step={1}
-          onValueChange={handleSliderChange} // Use the new handler
-        />
+        </div>
       </CardFooter>
     </Card>
   );
