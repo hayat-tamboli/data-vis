@@ -320,7 +320,7 @@ export const MyRidgeLineChart = () => {
 
   return (
     <Card className="flex-1">
-      <CardHeader>
+      <CardHeader className="items-center pb-4">
         <CardTitle className="text-2xl">The race of genres</CardTitle>
         <CardDescription className="text-lg">
           Showing top 5 genre count of hindi bollywood movies from 1931 to 2022

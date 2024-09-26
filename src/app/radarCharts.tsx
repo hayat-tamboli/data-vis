@@ -4,6 +4,8 @@ import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
 import { Slider } from "@/components/ui/slider";
 import { hindiYearlyGenreCount } from "./data/hindiYearlyGenreCount";
 import { SetStateAction, useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Play, Pause, ArrowCounterClockwise } from "@phosphor-icons/react";
 
 import {
   Card,
@@ -30,8 +32,8 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function MyRadarChart() {
-  const [sliderValue, setSliderValue] = useState([0]);
-  const [isAnimating, setIsAnimating] = useState(true); // State to track animation
+  const [sliderValue, setSliderValue] = useState([1]);
+  const [isAnimating, setIsAnimating] = useState(false); // State to track animation
 
   // Effect to increment the slider value every 2 seconds
   useEffect(() => {
@@ -42,7 +44,7 @@ export function MyRadarChart() {
           if (prevValue[0] < 91) {
             return [prevValue[0] + 1]; // Increment value
           } else {
-            clearInterval(interval); // Clear the interval if max value reached
+            // clearInterval(interval); // Clear the interval if max value reached
             return prevValue; // Return current value if max reached
           }
         });
@@ -99,7 +101,34 @@ export function MyRadarChart() {
         </ChartContainer>
       </CardContent>
       <CardFooter>
-        <div className="mr-2">Year: {sliderValue[0] + 1931}</div>
+        <div className="mr-2 w-12">Year: {sliderValue[0] + 1931}</div>
+        <Button
+          variant="outline"
+          className={sliderValue[0] == 91 ? "hidden" : "px-3 py-5 mr-4"}
+          onClick={() => {
+            setIsAnimating(!isAnimating);
+          }}
+        >
+          <Play
+            size={20}
+            weight="regular"
+            className={!isAnimating ? "block" : "hidden"}
+          />
+          <Pause
+            size={20}
+            weight="regular"
+            className={!isAnimating ? "hidden" : "block"}
+          />
+        </Button>
+        <Button
+          variant="outline"
+          className={sliderValue[0] != 91 ? "hidden" : "flex px-3 py-5 mr-4"}
+          onClick={() => {
+            setSliderValue([0]);
+          }}
+        >
+          <ArrowCounterClockwise size={20} />
+        </Button>
         <Slider
           value={sliderValue} // Bind the slider value
           max={91}
