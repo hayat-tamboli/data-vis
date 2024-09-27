@@ -102,7 +102,7 @@ export function MyRadarChart() {
       </CardContent>
       <CardFooter className="flex flex-col items-center">
         <div className="mr-2 w-12">Year: {sliderValue[0] + 1931}</div>
-        <div>
+        <div className="flex w-full">
           <Button
             variant="outline"
             className={sliderValue[0] == 91 ? "hidden" : "px-3 py-5 mr-4"}
@@ -135,6 +135,7 @@ export function MyRadarChart() {
             max={91}
             step={1}
             onValueChange={handleSliderChange} // Use the new handler
+            className="w-full"
           />
         </div>
       </CardFooter>
