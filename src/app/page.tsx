@@ -1,6 +1,7 @@
 import { TotalReleaseAreaChart } from "./totalReleaseAreaChart";
 import { MyRadarChart } from "../app/radarCharts";
 import { MyRidgeLineChart } from "../app/myAreaChart";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -65,6 +66,19 @@ export default function Home() {
           <MyRidgeLineChart />
         </div>
       </main>
+      <div className="bg-slate-100 lg:px-20 p-4">
+        <div className="text-slate-600 font-medium">
+          Crafted by{" "}
+          <a href="https://hayat.design">
+            <Button
+              variant={"link"}
+              className="px-[0.1rem] text-base text-slate-600 hover:text-slate-800"
+            >
+              Hayat Tamboli
+            </Button>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
